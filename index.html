@@ -29,39 +29,44 @@
                     <h1 class="text-3xl font-bold">Kitchenware</h1>
                 </div>
                <div class="flex gap-3">
-                <div class="card w-80 bg-base-100 shadow-xl p-4" onclick="check()">
-                    <figure class="px-10 pt-10 bg-gray-200 pb-4">
-                    <img src="./images/prod1.png" alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="rating pl-28 pt-4">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                    <div class="card w-80 bg-base-100 shadow-xl p-4" onclick="calculateTotalPrice(this)">
+                        <figure class="px-10 pt-10 bg-gray-200 pb-4">
+                            <img src="./images/prod1.png" alt="Shoes" class="rounded-xl" />
+                        </figure>
+                        <div class="rating pl-28 pt-4">
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        </div>
+                        <div class="items-center text-center">
+                            <h2 class="text-2xl font-semibold py-2">K. Accessories</h2>
+                        </div>
+                        <div class="items-center text-center">
+                            <p><span id="item1">100</span>.00 TK</p>
+                        </div>
                     </div>
-                    <div class="items-center text-center">
-                    <h2 class="text-2xl font-semibold py-2">K. Accessories</h2>
-                    <p>10.00 TK</p>
+
+                    <div class="card w-80 bg-base-100 shadow-xl p-4" onclick="calculateTotalPrice(this)">
+                        <figure class="px-10 pt-10 bg-gray-200 pb-4">
+                            <img src="./images/prod1.png" alt="Shoes" class="rounded-xl" />
+                        </figure>
+                        <div class="rating pl-28 pt-4">
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                                <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
+                        </div>
+                        <div class="items-center text-center">
+                            <h2 class="text-2xl font-semibold py-2">M. Accessories</h2>
+                        </div>
+                        <div class="items-center text-center">
+                            <p><span id="item1">200</span>.00 TK</p>
+                        </div>
                     </div>
-                </div>
-                <div class="card w-80 bg-base-100 shadow-xl p-4">
-                    <figure class="px-10 pt-10 bg-gray-200 pb-4">
-                    <img src="./images/prod2.png" alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="rating pl-28 pt-4">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    </div>
-                    <div class="items-center text-center">
-                    <h2 class="text-2xl font-semibold py-2">K. Accessories</h2>
-                    <p>10.00 TK</p>
-                    </div>
-                </div>
-                <div class="card w-80 bg-base-100 shadow-xl p-4">
+                    <div class="card w-80 bg-base-100 shadow-xl p-4">
                     <figure class="px-10 pt-10 bg-gray-200 pb-4">
                     <img src="./images/prod3.png" alt="Shoes" class="rounded-xl" />
                     </figure>
@@ -137,22 +142,24 @@
         </div>
 
         <div class=" mt-12 rounded-lg border ml-5 p-3 ">         
-            <div class="bg-slate-300 p-2">
+            <div class="bg-slate-300 p-2 mb-3">
                 <h4 class="font-semibold text-lg pb-2">Have coupon?</h4>
                 <div class="flex">
-                    <input type="text" placeholder="Coupon Code" class="border-2">
-                    <button class="bg-red-400 px-4 py-2 rounded text-white">Apply</button>        
+                    <input type="text" class="border-2" id="coupon-code" placeholder="Enter coupon code">
+                    <!-- <input type="text" placeholder="Coupon Code" class="border-2"> -->
+                    <button onclick="applyDiscount()" class="bg-red-400 px-4 py-2 rounded text-white hover:bg-gray-500 disabled:opacity-50" id="activate-button" disabled>Apply</button>        
                 </div>
             </div>
 
-            <div class="bg-slate-300 p-2">
+            <div class="bg-slate-300 p-2" id="cart-item">
                 
             </div>
 
-            <div class="bg-slate-300 p-2">
-                <p>Total Price: 00 Tk</p>
-                <p>Discount: 00 Tk</p>
-                <p>Total: 00 Tk</p>
+            <div class="bg-slate-300 p-2 mt-3">
+                <p>Total Price: <span id="total-price">00</span>.00 Tk</p>
+                <p>Discount: <span id="discounted-price">00</span>.00 Tk</p>
+                <p>Total: <span id="total-final">00</span>.00 Tk</p>
+                <button class="bg-red-400 ml-14 my-3 px-5 py-2 rounded text-white disabled:opacity-50 hover:bg-gray-500">Make Purchase</button>
             </div>
 
 
@@ -166,6 +173,7 @@
 
 
     <script src="JS/index.js"></script>
+    <!-- <script src="jsFunctions.js"></script> -->
 
 </body>
 </html>
